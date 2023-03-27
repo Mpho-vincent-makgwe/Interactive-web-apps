@@ -5,6 +5,12 @@
     --color-medium-grey: #424250;
     --color-light-grey: #d2d6dc;
 }
-* {
 
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background: ;
 }
