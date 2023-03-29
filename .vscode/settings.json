@@ -7,5 +7,6 @@
         "latex",
         "plaintext",
         "css"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }
