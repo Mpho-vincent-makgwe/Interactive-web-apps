@@ -7,7 +7,7 @@ import {year} from './configurations.js';//and full stops ans forward slashes ha
 
 document.addEventListener('DOMContentLoaded', () => {
     const message = '© ' + company + ' (' + year + ')';
-    document.querySelector('footer').innerText = message;
+    document.querySelector('[data-key="footer"]').innerText = message;
 });
 
 
