@@ -5,7 +5,10 @@ import {company} from './configurations.js';//and full stops ans forward slashes
 // the variable names in the import statements are misspelled. It should be:
 import {year} from './configurations.js';//and full stops ans forward slashes had to be included.
 
-const message = '© ' + company + ' (' + year + ')';
-document.querySelector('[data-key="footer"]').innerText = message;
+document.addEventListener('DOMContentLoaded', () => {
+    const message = '© ' + company + ' (' + year + ')';
+    document.querySelector('footer').innerText = message;
+});
+
 
 console.log(message);
