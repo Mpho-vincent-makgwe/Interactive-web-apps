@@ -1,5 +1,5 @@
 const date = 2050;
-const status = 'student';
+const status = 'Parent';
 let count = 0;
 
 if (date === 2050)  {

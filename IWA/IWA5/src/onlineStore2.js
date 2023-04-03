@@ -46,11 +46,6 @@ if (shipping === 0 && customers !== '1') {
 }
 
 
-
-
-
-
-
 // The changes I made to the code include:
 
 // Changed location from an array to a string.
@@ -60,3 +55,8 @@ if (shipping === 0 && customers !== '1') {
 // Changed the value of batteries to 35 * 2 to match the output of R70.
 // Fixed the condition in the if statement that checks for free shipping (changed && to ||).
 // Fixed the condition in the if statement that checks for banned shipping (changed ? to :).
+
+
+
+
+
