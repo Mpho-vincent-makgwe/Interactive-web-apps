@@ -10,21 +10,15 @@ const divider = '----------------------------------'
 
 // Only change below this line
 
-// const owed = (parseFloat(leoBalance) + parseFloat(sarahBalance)).toFixed(2);
-// const leo = `${leoName}  ${leoSurname} + (Owed:R ${parseFloat(leoBalance)}`;
-// const sarah = `${sarahName} + ${sarahSurname} + (Owed:R ${parseFloat(sarahBalance)}`;
-// const total = `Total amount owed:R ${owed}`;
-// const result = leo + sarah + divider + total + owed + divider;
+const owed = (/*used parseFloat to display all the digits of a number*/parseFloat(leoBalance) + parseFloat(sarahBalance));
 
-// console.log(result);
+const leo = `${leoName} ${leoSurname} (Owed: R ${(parseFloat(Math.abs/*his is to turn negative to posetive*/(leoBalance).toFixed(2))/*used toFixed to conver the number to two decimal place */)})\n`;
 
+const sarah =  `${sarahName} ${sarahSurname} (Owed: R ${(parseFloat(Math.abs/*his is to turn negative to posetive*/(sarahBalance).toFixed(2)))})\n`;
 
-
-const owed = (parseInt(leoBalance) + parseInt(sarahBalance)).toFixed(2);
-const leo = `${leoName} ${leoSurname} (Owed: R ${(parseInt(leoBalance)).toFixed(2)})\n`;
-const sarah = `${sarahName} ${sarahSurname} (Owed: R ${(parseInt(sarahBalance)).toFixed(2)})\n`;
-const total = `  Total amount owed: R ${owed.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')}`;
+const total = `  Total amount owed: R ${Math.abs/*his is to turn negative to posetive*/(owed).toFixed(2)}`;
 
 const result = `\n${leo}${sarah}\n${divider}\n${total}\n${divider}`;
+//(\n)adding a line break or intoducing a new line
 
-console.log(result);
+console.log((result.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')));
