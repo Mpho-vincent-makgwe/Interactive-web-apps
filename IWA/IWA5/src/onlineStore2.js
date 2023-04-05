@@ -4,7 +4,7 @@ const FREE_WARNING = 'Free shipping only applies to single customer orders';
 const BANNED_WARNING = 'Unfortunately we do not ship to your country of residence';
 const NONE_SELECTED = 0;
 
-
+let calcShipping =  undefined;
 let shipping = 400;
 let currency = 'R';
 let shoes = 300 * 1;

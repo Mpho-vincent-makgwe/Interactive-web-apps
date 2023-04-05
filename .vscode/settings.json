@@ -8,5 +8,6 @@
         "plaintext",
         "css"
     ],
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "files.maxMemoryForLargeFilesMB": 6000
 }
