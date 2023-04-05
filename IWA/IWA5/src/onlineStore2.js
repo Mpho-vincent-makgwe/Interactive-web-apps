@@ -40,7 +40,7 @@ if ( totalPrice > 1000 && location === 'NAM'&& customers < 2  ) {
 if (shipping === 0 && customers !== '1') { 
     console.log(FREE_WARNING); 
 }else if (location === 'NK' ) {
-    console.log(BANNED_WARNIN);
+    console.log(BANNED_WARNING);
 } else {
     console.log('price',currency+''+totalPrice);
 }
