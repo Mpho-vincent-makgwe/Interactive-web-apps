@@ -31,7 +31,7 @@ const leo =/*added equal sign */ {
 	
 };
 
-console.table(leo);
+
 
 
 const sarah = {
@@ -49,5 +49,5 @@ const sarah = {
 };//added curly bracket.
 //added semicolon
 
-
+console.table(leo);
 console.table(sarah);
