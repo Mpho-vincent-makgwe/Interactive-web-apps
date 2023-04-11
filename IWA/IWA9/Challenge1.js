@@ -1,6 +1,6 @@
 const salary = 4000;
-const lodging = 'apartment'
-const size = 'large'
+const lodging = 'apartment';
+const size = 'large';
 
 
 // Only change the syntax below (not the values or key names)
@@ -20,18 +20,18 @@ const tax = {
 
 const rent = {
     none: 0,
-    'small-room': 200,
-    'large-room': 300,
-    'small-apartment': 400,
-    'large-apartment': 800,
-    'small-house': 1200,
-    'large-house': 2400,
+    smallRoom : 200,
+    largeRoom: 300,
+    smallApartment: 400,
+    largeApartment: 800,
+    smallFouse: 1200,
+    largeHouse: 2400,
 }
 
 // You can change below however you want
 
-const taxAsDecimal = pasrseFloat((tax).913) / 100
+const taxAsDecimal = parseFloat(tax*0.913) / 100;
 const startingAfterTax = salary * 1 - taxAsDecimal
 const type = lodging + size
-const balance = expenses(transport) - expenses(food) - expenses(rent.type) 
+const balance = expenses.transport - expenses.food - expenses(rent.type) 
 console.log(balance)
