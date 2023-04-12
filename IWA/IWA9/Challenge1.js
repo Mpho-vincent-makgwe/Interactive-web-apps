@@ -32,7 +32,10 @@ const rent = {
 // You can change below however you want
 const Rand = 'R';
 const taxAsDecimal = parseFloat(tax[913]) / 100;
+/* tax.913 is invalid syntax for accessing the value of the 913 key in the tax object. The correct syntax is tax[913].*/
 const startingAfterTax = salary * (1 - taxAsDecimal);
+/*The calculation of startingAfterTax is incorrect. It should be salary * (1 - taxAsDecimal) to calculate the salary after taxes.*/
 const type = `${lodging} + '-' + ${size}`;
 const balance =  startingAfterTax - (expenses.transport + expenses.food + rent["large-apartment"]);
+/*The calculation of balance is incorrect. The expenses object should be accessed using square brackets and the rent object should be accessed using the type variable. Also, the subtraction order of expenses.transport and expenses.food is incorrect.*/
 console.log(Rand,balance.toFixed(2));
