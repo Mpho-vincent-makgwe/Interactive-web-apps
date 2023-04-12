@@ -55,7 +55,7 @@ const futureId = 9
 
 console.log(holidays[futureId]?.name || `ID ${futureId} not created yet`)
 
-let copiedId = holidays[6].name='x-mas';
+let copiedId = holidays[6].id;
 let copiedName =  'X-mas Day' ;
 let copiedDate = new Date(holidays[6].date);
 let correctDate = new Date(copiedDate);
@@ -66,12 +66,12 @@ isEarlier = copiedDate < holidays[6].date
 
 if (isEarlier) {copiedDate = correctDate}
 console.log('New date is earlier:', true,)
-console.log('ID change:', holidays[christmas].id === copiedId || copiedId);
+console.log('ID change:',copiedId && holidays[christmas].id !== copiedId);
 console.log('Name change:', holidays[6].name === copiedName ? false : copiedName )
-console.log('Date change:', holidays[6].date === copiedDate ? false : copiedDate )
+console.log('Date change:', holidays[6].date === copiedDate ? false : copiedDate.toLocaleDateString('en-GB') )
 
 
-console.log('Name change:',copiedId);
+
 
 
 
@@ -104,8 +104,10 @@ const lastDay = new Date(lastHolidayTimestamp).getDate();
 const lastMonth = new Date(lastHolidayTimestamp).getMonth()+1;
 
 console.log(`${"0"+firstDay}/${"0"+firstMonth}/${currentYear}`);
+console.log(`${lastDay}/${lastMonth}/${currentYear}`);
+const obj = Object.keys(holidays)
 
-// console.log('{lastDay}/{lastMonth}/{currentYear}');
+const randomHoliday = Math.floor(Math.random () * obj.length);
+const randomHolidaykey = new Date (holidays[randomHoliday].date)
+console.log(randomHolidaykey.toLocaleDateString('en-GB'));
 
-// const randomHoliday = holidays[Math.random]
-// console.log(randomHoliday.date);
