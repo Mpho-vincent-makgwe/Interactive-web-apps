@@ -11,8 +11,7 @@ const status1 = order1.querySelector('.status dd');
 biscuits1.textContent = order1.getAttribute('data-biscuits');
 donuts1.textContent = order1.getAttribute('data-donuts');
 pancakes1.textContent = order1.getAttribute('data-pancakes');
-
- status1.textContent = order1.getAttribute('data-delivered') !== 'true'  ? 'Delivered' : 'Pending';
+status1.textContent = order1.getAttribute('data-delivered') !== 'true'  ? 'Delivered' : 'Pending';
 
 
 
