@@ -11,7 +11,7 @@ const status1 = order1.querySelector('.status dd');
 biscuits1.textContent = order1.getAttribute('data-biscuits');
 donuts1.textContent = order1.getAttribute('data-donuts');
 pancakes1.textContent = order1.getAttribute('data-pancakes');
-status1.textContent = order1.getAttribute('data-delivered') !== 'true'  ? 'Delivered' : 'Pending';
+status1.textContent = order1.getAttribute('data-delivered') !== 'false'  ? 'Delivered' : 'Pending';
 
 
 
@@ -27,14 +27,9 @@ const status2 = order2.querySelector('.status dd');
 biscuits2.textContent = order2.getAttribute('data-biscuits');
 donuts2.textContent = order2.getAttribute('data-donuts');
 pancakes2.textContent = order2.getAttribute('data-pancakes');
-status2.textContent = order2.getAttribute('data-delivered') !== 'true' ? 'Delivered' : 'Pending';
+status2.textContent = order2.getAttribute('data-delivered') !== 'false' ? 'Delivered' : 'Pending';
 
-
-
-
-
-const order3 = document.querySelector('[data-key="order3"]');
-
+const order3 = document.querySelector('[data-key="order3"]')
 
 /* const 3-root = document(order3),*/
 const biscuits3 = order3.querySelector('.biscuits .count');
@@ -45,5 +40,5 @@ const status3 = order3.querySelector('.status dd');
 biscuits3.textContent = order3.getAttribute('data-biscuits');
 donuts3.textContent = order3.getAttribute('data-donuts');
 pancakes3.textContent = order3.getAttribute('data-pancakes');
-status3.textContent = order3.getAttribute('data-delivered') !== 'true' ? 'Delivered' : 'Pending';
+status3.textContent = order3.getAttribute('data-delivered') !== 'false' ? 'Delivered' : 'Pending';
 
