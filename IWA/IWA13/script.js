@@ -6,16 +6,16 @@ let calculated = '1'
 
 
 const logCalc = () => { 
-const isString = typeof calculated === 'numerical-string'; 
-const calculatedAsNumber = isString ? calculated : parseNumber(calculated);
+const isString = typeof calculated === 'string'; 
+const calculatedAsNumber = isString ? parseInt(calculated)  : calculated;
 calculated = calculatedAsNumber + 1; 
 };
 
 const calcUser = () => {
-console.log(calculated);
-if (calculated >= 1){user = 'John';} 
-if (calculated >= 2) {state = 'requesting';}
-if (calculated >= 3) {state = 'idle';}
+logCalc();
+if (calculated > 2){user = 'John';} 
+if (calculated > 2) {state = 'requesting';}
+if (calculated > 3) {state = 'idle';}
 };
 
 const checkUser = () => {
@@ -42,27 +42,3 @@ checkUser()
 calcUser()
 
 
-
-   
-  
-
-  
-   
-  
-  const greet = () => {
-      console.log("Hello World!")
-  }
-  
-  const bark = () => {
-      console.log("Woof!")
-  }
-  
-  greet()
-  
-  bark()
-  bark()
-  bark()
-  bark()
-  
-  greet()
-  greet()
