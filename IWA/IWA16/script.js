@@ -67,8 +67,12 @@ response: {
 
 // Only edit below this comment
 
+
+// Define a function that takes an athlete object and creates HTML elements to display information about that athlete's races
 const createHtml = (athlete) => {
+    // Create a document fragment to hold the HTML elements
 const fragment = document.createDocumentFragment();
+ // Extract relevant information from the athlete object
 const firstName = athlete.firstName;
 const surname = athlete.surname;
 const races = athlete.races;
@@ -80,16 +84,21 @@ const day = date.getDate();
 const month = MONTHS[date.getMonth()];
 const year = date.getFullYear();
 
-const [hours, minutes, seconds] = latestRace.time;
-const totalTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+const [first, second, third, fourth] = latestRace.time;
+const totalTime = (first+second+third+fourth).toString();
+const minutes = totalTime.split('T')
+const hours = Math.floor(totalTime/60).toString();
+const timeTaken = `${hours}:${minutes}`;
 
+// Create an HTML element to represent the athlete
 const athleteElement = document.createElement('div');
 athleteElement.classList.add('athlete');
 athleteElement.dataset.id = athlete.id;
 
+// Create a definition list to display the athlete's information
 const list = document.createElement('dl');
 list.innerHTML = /* html */ `
-    <dt>Athlete</dt>
+    <dt><h2>Athlete:</h2>${athlete.id}</dt>
     <dd>${firstName} ${surname}</dd>
 
     <dt>Total Races</dt>
@@ -99,7 +108,7 @@ list.innerHTML = /* html */ `
     <dd>${day} ${month} ${year}</dd>
 
     <dt>Total Time (Latest)</dt>
-    <dd>${totalTime}</dd>
+    <dd>${timeTaken}</dd>
 `;
 
 athleteElement.appendChild(list);
@@ -108,6 +117,5 @@ return fragment;
 };
 
 
-// [NM372], [SV782] = data
 document.querySelector('[data-athlete="NM372"]').appendChild(createHtml(data.response.data.NM372));
 document.querySelector('[data-athlete="SV782"]').appendChild(createHtml(data.response.data.SV782));
