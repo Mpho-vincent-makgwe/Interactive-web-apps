@@ -1,5 +1,5 @@
-import {updateDragging, createOrderData, state, TABLES, COLUMNS } from './data.js';
-import {  moveToColumn, updateDraggingHtml, html,createOrderHtml} from './view.js'
+import {updateDragging, createOrderData, state, TABLES, COLUMNS } from './data';
+import {  moveToColumn, updateDraggingHtml, html,createOrderHtml} from './view'
 
 /**
  * A handler that fires when a user drags over any element inside a column. In
@@ -72,15 +72,8 @@ updateDraggingHtml({ dragging: false })
 const handleHelpToggle = (event) => {html.help.overlay.style.display = 'block'};
 const handleHelpToggleOff = (event) => {html.help.overlay.style.display = ''};
 
-// const addButton = document.querySelector('.button_primary');
 
-
-const handleAddToggle = (event) => {html.add.overlay.style.display = 'block';console.log('add')};
-
-// addButton.addEventListener('click', handleAddToggle)
-
-
-
+const handleAddToggle = () => {html.add.overlay.style.display = 'block'};
 const handleAddToggleOff = () => {html.add.overlay.style.display = ''};
 
 
@@ -96,20 +89,18 @@ html.edit.table.value = orderData.table;
 html.edit.overlay.style.display = 'block';
 };
 const handleAddSubmit = (event) => {
-    event.preventDefault();
-    const order = {
-        title: html.add.title.value,
-        table: html.add.table.value,
-    };
-    let orderData = createOrderData(order);
-    html.add.overlay.style.display = '';
-    const newOrders = createOrderHtml(orderData);
-    const customerOrder = html.other.grid.querySelector('[data-column="ordered"]');
-    html.add.form.reset()
-    customerOrder.innerHTML += newOrders.innerHTML;
-    state.push(orderData);
-    addOverlay.close();
-    };
+event.preventDefault();
+const order = {
+    title: html.add.title.value,
+    table: html.add.table.value,
+};
+let orderData = createOrderData(order);
+html.add.overlay.style.display = '';
+const newOrders = createOrderHtml(orderData);
+const customerOrder = html.other.grid.querySelector('[data-column="ordered"]');
+customerOrder.innerHTML += newOrders;
+state.push(orderData);
+};
 
 const handleEditSubmit = (event) => {
 event.preventDefault();
@@ -149,7 +140,7 @@ orderEl.remove();
 };
 
 
-html.add.cancel.addEventListener('click', handleAddToggleOff)
+html.add.cancel.addEventListener('click', handleAddToggle)
 html.other.add.addEventListener('click', handleAddToggle)
 html.add.form.addEventListener('submit', handleAddSubmit)
 
@@ -158,7 +149,7 @@ html.edit.cancel.addEventListener('click', handleEditToggle)
 html.edit.form.addEventListener('submit', handleEditSubmit)
 html.edit.delete.addEventListener('click', handleDelete)
 
-html.help.cancel.addEventListener('click', handleHelpToggleOff)
+html.help.cancel.addEventListener('click', handleHelpToggle)
 html.other.help.addEventListener('click', handleHelpToggle)
 
 for (const htmlColumn of Object.values(html.columns)) {
