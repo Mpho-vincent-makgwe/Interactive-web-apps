@@ -69,6 +69,8 @@ updateDragging({ id: null, column: null, position: null })
 updateDraggingHtml({ dragging: false })
 };
 
+
+
 const handleHelpToggle = (event) => {html.help.overlay.style.display = 'block'};
 const handleHelpToggleOff = (event) => {html.help.overlay.style.display = ''};
 
@@ -85,6 +87,7 @@ const handleAddToggleOff = () => {html.add.overlay.style.display = ''};
 
 
 
+
 // button.addEventListener('click', handleAddToggle)
 const handleEditToggle = (event) => {
 const orderEl = event.target.closest(".order");
@@ -95,6 +98,8 @@ html.edit.title.value = orderData.title;
 html.edit.table.value = orderData.table;
 html.edit.overlay.style.display = 'block';
 };
+const handleEditToggleOff = () => {html.edit.overlay.style.display = ''};
+
 const handleAddSubmit = (event) => {
     event.preventDefault();
     const order = {
@@ -110,6 +115,8 @@ const handleAddSubmit = (event) => {
     state.push(orderData);
     addOverlay.close();
     };
+
+
 
 const handleEditSubmit = (event) => {
 event.preventDefault();
@@ -127,6 +134,8 @@ if (index !== -1) {
     state[index] = orderData;
 }
 
+
+
 // Update the HTML to reflect the changes
 const column = html.columns[orderData.column];
 const orderEl = column.querySelector(`[data-id="${orderData.id}"]`);
@@ -135,6 +144,8 @@ orderEl.outerHTML = orderHtml;
 // Close the edit overlay
 html.edit.overlay.style.display = "";
 };
+
+
 
 const handleDelete = (event) => {
 const id = event.target.dataset.id;
@@ -154,7 +165,7 @@ html.other.add.addEventListener('click', handleAddToggle)
 html.add.form.addEventListener('submit', handleAddSubmit)
 
 html.other.grid.addEventListener('click', handleEditToggle)
-html.edit.cancel.addEventListener('click', handleEditToggle)
+html.edit.cancel.addEventListener('click', handleEditToggleOff)
 html.edit.form.addEventListener('submit', handleEditSubmit)
 html.edit.delete.addEventListener('click', handleDelete)
 
