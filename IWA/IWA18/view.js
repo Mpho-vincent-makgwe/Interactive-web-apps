@@ -21,6 +21,7 @@ const hours = created.getHours().toString().padStart(2, '0')
 const minutes = created.getMinutes().toString().padStart(2, '0')
 
 element.innerHTML = /* html */ `
+<div class="order>
     <div class="order__title" data-order-title>${title}</div>
     
     <dl class="order__details">
@@ -34,6 +35,7 @@ element.innerHTML = /* html */ `
             <dd class="order__value">${hours}:${minutes}</dd>
         </div>
     </dl>
+<div></div>
 `
 
 return element
