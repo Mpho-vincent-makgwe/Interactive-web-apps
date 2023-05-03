@@ -70,21 +70,28 @@
     };
 
 
-
+// This function handles toggling the help overlay on and off when the help button is clicked.
     const handleHelpToggle = (event) => {html.help.overlay.style.display = 'block'};
 
+// This function handles hiding the help overlay when the cancel button is clicked.
     const handleHelpToggleOff = (event) => {html.help.overlay.style.display = ''};
 
+// This function handles toggling the add overlay on and off when the add button is clicked, and logs a message to the console.
     const handleAddToggle = (event) => {html.add.overlay.style.display = 'block';console.log('add')};
 
+// This function handles hiding the add overlay when the cancel button is clicked.
     const handleAddToggleOff = () => {html.add.overlay.style.display = ''};
 
+// This function handles toggling the edit overlay on and off when a column is clicked.
     const handleEditToggle = (event) => {
     html.edit.overlay.style.display = 'block';
     };
 
+    // This function handles hiding the edit overlay when the cancel button is clicked.
     const handleEditToggleOff = () => {html.edit.overlay.style.display = ''};
 
+
+    /*This function handles submitting a new order when the add form is submitted. It prevents the default form submission behavior, creates an order object from the form data, converts the order object into HTML, and then adds that HTML to the "ordered" column.*/
     const handleAddSubmit = (event) => {
     event.preventDefault();
     const order = {
@@ -101,36 +108,28 @@
     console.log('submited')
     };
 
-        const handleEditSubmit = (event) => {
-            event.preventDefault();
-            console.log('submitted')
-            
-            // Get the order data from the edit form fields
-            const id = html.edit.id.value;
-            const order = {
-                id: id,
-                title: html.edit.title.value,
-                table: html.edit.table.value,
-                column: html.edit.column.value,
-            };
-            
-            // Update the state with the new order data
-            const index = state.findIndex((o) => o.id === id);
-            state[index] = order;
-            
-            // Create new HTML elements for the updated order
-            const newOrderHtml = createOrderHtml(order);
-            
-            // Update the corresponding order element in the DOM
-            const oldOrderEl = document.querySelector(`.order[data-id="${id}"]`);
-            const columnEl = html.columns[order.column];
-            columnEl.replaceChild(newOrderHtml, oldOrderEl);
-            
-            // Hide the edit overlay
-            html.edit.overlay.style.display = '';
-            };
-            
-            
+
+    /*This function handles submitting an edited order when the edit form is submitted. It prevents the default form submission behavior, creates an order object from the form data, converts the order object into HTML, and then replaces the original order HTML with the new HTML in the appropriate column.*/
+    const handleEditSubmit = (event) => {
+    event.preventDefault();
+
+    // Get the order data from the edit form fields
+    const orderEdit = {
+    title: html.edit.title.value,
+    table: html.edit.table.value,
+    column: html.edit.column.value,
+    };
+    let orderDataEdit = createOrderData(orderEdit);
+    html.edit.overlay.style.display = '';
+    const newEditOrders = createOrderHtml(orderDataEdit);
+    const customerOrder = html.other.grid.querySelector(`[data-column=${orderEdit.column}]`);
+    // html.edit.form.reset()
+    customerOrder.innerHTML += newEditOrders.innerHTML;
+    console.log('submited')
+  }
+
+
+  /*          
     const handleDelete = (event) => {
     const id = event.target.dataset.id;
     // Remove the order data from state
@@ -141,7 +140,7 @@
     const orderEl = column.querySelector(`[data-id="${id}"]`);
     orderEl.remove();
     };
-
+*/
 
 
     html.add.cancel.addEventListener('click', handleAddToggleOff)

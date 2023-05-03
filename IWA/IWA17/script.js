@@ -55,6 +55,10 @@ for (let weekIndex = 0; weekIndex < weeks.length; weekIndex++) {
     }
     weeks[weekIndex] = value;
 }
+// If week 6 has no days, pop it.
+if (weeks.length === 6 && weeks[5].days.every(day => day.value === null)) {
+    weeks.pop();
+  }
 return weeks;
 };
 /**
@@ -97,7 +101,7 @@ return result;
 // Only edit above
 
 const current = new Date()
-document.querySelector('[data-title]').innerText = `${MONTHS[current.getMonth()]} ${current.getFullYear()}`
+document.querySelector('[data-title]').innerText = `${current.getDate()} ${MONTHS[current.getMonth()]} ${current.getFullYear()}-${current.toLocaleTimeString()}`
 
 const data = createData()
 document.querySelector('[data-content]').innerHTML = createHtml(data);
