@@ -336,6 +336,22 @@ option {
   cursor: pointer;
 }
 
+.overlay_input {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  background-color: rgba(var(--color-dark), 0.05);
+  border-width: 0;
+  border-radius: 6px;
+  width: 100%;
+  height: 4rem;
+  color: rgba(var(--color-dark), 1);
+  padding: 1rem 0.5rem 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  cursor: pointer;
+}
+
 .overlay__input_select {
   padding-left: 0.5rem;
 }
