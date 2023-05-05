@@ -5,8 +5,8 @@
     const settingsBtn = document.querySelector('[data-header-settings]');
     const settingsCancelBtn = document.querySelector('[data-settings-cancel]');
     const closeButton = document.querySelector('[data-list-close]');
-    const dataListButton = document.querySelector('[data-list-button]');
 
+const showMoreButton = document.querySelector('[data-list-button]')
 
     const matches = books;
     const page = 1;
@@ -33,9 +33,6 @@
     settingsCancelBtn.addEventListener('click',settingsCancelHandler);
 
 
-
-
-    closeButton.addEventListener('click', () => {overlay.close()});
 
 
     const previewOverlay = document.querySelector('[data-list-active]');
@@ -80,17 +77,15 @@
    const name = document.querySelector(`[data-author-${event.target.id}]`).innerHTML
    subTitle.innerHTML = `${name}(${year})`
     } 
-
-    for (let i = 0; i < extracted.length; i++) {
-  const { author, image, title, id, description, published} = extracted[i];
-    const preview = createpreview({
-        author,
-        image,
-        title,
-        id,
-        description,
-        published,
-    })
+    for (let { author, image, title, id, description, published} of extracted) {
+      const preview = createpreview({
+          author,
+          image,
+          title,
+          id,
+          description,
+          published
+      })
         
     preview.addEventListener('click', displayDiscription)
     fragment.appendChild(preview)
@@ -174,31 +169,6 @@
 /******>DAY && NIGHT TOGGLE ENDS HERE<******/
 
 
-
-document.querySelector('[data-list-button]').innerHTML = /* html */[ 
-`<span>Show more</span>
-<span class="list__remaining" data-list-remaining> (${books.length - 36})</span>`,
-]
-dataListButton.addEventListener('click', (event)=>{
-event.preventDefault()
-page += 1
-let rangeMax = page * BOOKS_PER_PAGE
-let rangeMin = rangeMax - 36
-extracted = books.slice(rangeMin, rangeMax)
-for (let { author, image, title, id, description, published} of extracted) {
-    const preview = createpreview({
-        author,
-        image,
-        title,
-        id,
-        description,
-        published
-    })
-    preview.addEventListener('click', displayDiscription)
-    document.querySelector('[data-list-items]').appendChild(preview)
-    document.querySelector('[data-list-remaining]').innerHTML = `(${matches.length - rangeMax > 0 ? matches.length - rangeMax : 0})`
-};
-})
 
 
 
@@ -286,3 +256,29 @@ event.preventDefault();
     });
 /**********************SEARCH END**************************/
 
+
+/*******************.Show More button doesn't work*******************/
+document.querySelector('[data-list-button]').innerHTML = /* html */ [
+  `<span>Show more</span>
+  <span class="list__remaining" data-list-remaining> (${books.length - 36})</span>`,
+]
+showMoreButton.addEventListener('click', (event)=>{
+  event.preventDefault()
+  page += 1;
+  let rangeMax = page * BOOKS_PER_PAGE
+  let rangeMin = rangeMax - 36
+  extracted = books.slice(rangeMin, rangeMax)
+  for (let { author, image, title, id, description, published} of extracted) {
+      const preview = createpreview({
+          author,
+          image,
+          title,
+          id,
+          description,
+          published
+      })
+      preview.addEventListener('click', displayDiscription)
+      document.querySelector('[data-list-items]').appendChild(preview)
+      document.querySelector('[data-list-remaining]').innerHTML = `(${matches.length - rangeMax > 0 ? matches.length - rangeMax : 0})`
+  };
+})
