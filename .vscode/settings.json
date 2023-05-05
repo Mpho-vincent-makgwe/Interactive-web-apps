@@ -9,5 +9,6 @@
         "css"
     ],
     "git.ignoreLimitWarning": true,
-    "files.maxMemoryForLargeFilesMB": 6000
+    "files.maxMemoryForLargeFilesMB": 6000,
+    "livePreview.defaultPreviewPath": "/IWA/IWA19/book-connect-main/book-connect-main/index.html"
 }
