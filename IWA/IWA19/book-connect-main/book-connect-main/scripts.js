@@ -130,7 +130,7 @@ const showMoreButton = document.querySelector('[data-list-button]')
 
     authorsSelect.appendChild(authorsFragment);
 
-
+console.log();
 /******>DAY && NIGHT<******/
 /*Night/Dark and Light Modes*/
     const day = {
@@ -277,8 +277,43 @@ showMoreButton.addEventListener('click', (event)=>{
           description,
           published
       })
-      preview.addEventListener('click', displayDiscription)
+      showMoreButton.addEventListener('click', displayDiscription)
       document.querySelector('[data-list-items]').appendChild(preview)
       document.querySelector('[data-list-remaining]').innerHTML = `(${matches.length - rangeMax > 0 ? matches.length - rangeMax : 0})`
   };
 })
+
+
+const loadMoreButton = document.querySelector('[data-list-button]');
+loadMoreButton.innerHTML = /* html */ [
+  `<span>Show more</span>
+  <span class="list__remaining" data-list-remaining> (${books.length - 36})</span>`,
+]
+const loadMoreBooks = () => {
+  const startIndex = page * BOOKS_PER_PAGE;
+  const endIndex = startIndex + BOOKS_PER_PAGE;
+  const nextBooks = matches.slice(startIndex, endIndex);
+
+  const fragment = document.createDocumentFragment();
+  for (const { author, image, title, id, description, published } of nextBooks) {
+    const preview = createpreview({ author, image, title, id, description, published });
+    preview.addEventListener('click', displayDiscription);
+    fragment.appendChild(preview);
+  }
+
+  const listItems = document.querySelector('[data-list-items]');
+  listItems.appendChild(fragment);
+
+  page += 1;
+
+  if (endIndex >= matches.length) {
+    loadMoreButton.style.display = '';
+  }
+  document.querySelector('[data-list-items]').appendChild(preview)
+//       document.querySelector('[data-list-remaining]').innerHTML = `(${matches.length - rangeMax > 0 ? matches.length - rangeMax : 0})`
+};
+
+loadMoreButton.addEventListener('click', loadMoreBooks);
+const listItems = document.querySelector('[data-list-items]');
+listItems.appendChild(fragment);
+listItems.appendChild(loadMoreButton);
