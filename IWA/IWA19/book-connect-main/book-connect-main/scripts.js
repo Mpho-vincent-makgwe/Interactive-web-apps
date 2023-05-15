@@ -16,8 +16,6 @@ const showMoreButton = document.querySelector('[data-list-button]')
     const settingsHandler =(event)=>{
     event.preventDefault();
     settings.style.display = 'block';
-    console.log(settingsBtn);
-    console.log(settings);
 
     }
     settingsBtn.addEventListener('click',settingsHandler);
@@ -26,8 +24,6 @@ const showMoreButton = document.querySelector('[data-list-button]')
     const settingsCancelHandler =(event)=>{
     event.preventDefault();
     settings.style.display = '';
-    console.log(settingsCancelBtn);
-    console.log(settings);
 
     }
     settingsCancelBtn.addEventListener('click',settingsCancelHandler);
@@ -56,8 +52,7 @@ const showMoreButton = document.querySelector('[data-list-button]')
     };
 
     const fragment = document.createDocumentFragment()
-    const extracted = books.slice(0, 36)
-    console.log (extracted.length)
+    const extracted = books.slice(0, 36);
 
     const displayDiscription = (event) => {
         previewOverlay.style.display = 'block';
@@ -109,8 +104,6 @@ const showMoreButton = document.querySelector('[data-list-button]')
     elementOption.value = id;
     elementOption.innerText = name;
     genresFragment.appendChild(elementOption);
-    console.log(elementOption);
-    //   console.log(id, name);
     }
 
     genresSelect.appendChild(genresFragment);
@@ -128,9 +121,9 @@ const showMoreButton = document.querySelector('[data-list-button]')
     authorsFragment.appendChild(option);
     }
 
-    authorsSelect.appendChild(authorsFragment);
+    authorsSelect.appendChild(authorsFragment)
 
-console.log();
+
 /******>DAY && NIGHT<******/
 /*Night/Dark and Light Modes*/
     const day = {
@@ -249,10 +242,6 @@ event.preventDefault();
   } else {
     resultList.innerHTML = '<p>No results found.</p>';
   }
-  console.log(`Search Title: ${searchTitle}`);
-  console.log(`Search Genre: ${searchGenre}`);
-
-  console.log(`Search Author: ${searchAuthor}`);
     });
 /**********************SEARCH END**************************/
 
