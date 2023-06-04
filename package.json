@@ -8,6 +8,9 @@
   "version": "1.0.0",
   "main": "script.js",
   "devDependencies": {
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
     "jsdoc": "^4.0.2"
   },
   "scripts": {
