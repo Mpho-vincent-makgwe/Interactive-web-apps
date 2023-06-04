@@ -6,7 +6,14 @@ const number = document.querySelector('[data-key="number"]');
 const subtract = document.querySelector('[data-key="subtract"]');
 const add = document.querySelector('[data-key="add"]');
 
+/**
+ * This function is responsible for subtracting numbers.
+ *
+ * @typedef {function} subtractHandler
+ * @property {number} newValue - The new value that will be returned after subtracting.
+ */
 
+/**@type{subtractHandler} */
 const subtractHandler = () =>{
     const newValue = parseInt(number.value) -1
     number.value =  newValue;

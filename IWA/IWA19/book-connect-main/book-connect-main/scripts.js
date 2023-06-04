@@ -1,4 +1,5 @@
     import {authors, books, genres, BOOKS_PER_PAGE} from './data.js'
+// @ts-check
 
 /**************Buttons **************/
 
@@ -33,7 +34,21 @@ const showMoreButton = document.querySelector('[data-list-button]')
 
     const previewOverlay = document.querySelector('[data-list-active]');
 
-    const createpreview = ({ author, image, title, id, description, published}) => {
+/**
+ * Creates a preview element for a given book.
+ *
+ * @typedef {function} createPreview
+ * @param {Object} options - The options for creating the preview.
+ * @param {string} options.author - The author of the book.
+ * @param {string} options.image - The URL of the book's image.
+ * @param {string} options.title - The title of the book.
+ * @param {string} options.id - The unique identifier of the book.
+ * @param {string} options.description - The description of the book.
+ * @param {string} options.published - The publication date of the book.
+ * @returns {HTMLElement} - The created preview element.
+ */
+/**@type {createPreview} */
+    const createPreview = ({ author, image, title, id, description, published}) => {
     const divPreview = document.createElement('div') 
     divPreview.classList.add("preview")
     divPreview.id = id
@@ -73,7 +88,7 @@ const showMoreButton = document.querySelector('[data-list-button]')
    subTitle.innerHTML = `${name}(${year})`
     } 
     for (let { author, image, title, id, description, published} of extracted) {
-      const preview = createpreview({
+      const preview = createPreview({
           author,
           image,
           title,
@@ -165,33 +180,51 @@ const showMoreButton = document.querySelector('[data-list-button]')
 
 
 
+/**
 
-/********************************SEARCH********************************/
+This code implements a search feature for a list of books.
+When the user submits the search form, the code extracts the form data and filters the list of books based on the search criteria.
+*/
+//********************************SEARCH********************************
+
 const searchIconOverlay = document.querySelector('[data-search-overlay]')
-/****************************SEARCH OPEN****************************/
+
+
+//****************************SEARCH OPEN****************************/
 
 const searchIconBtn = document.querySelector('[class="header__button"]');
+/**
+*
+*Event handler for the search icon button click event.
+*@param {Event} event - The click event.
+*/
 const searchIconHandler =(event)=>{
 event.preventDefault();
 searchIconOverlay.show();
 }
 searchIconBtn.addEventListener('click',searchIconHandler);
-/****************************SEARCH CLOSE****************************/
+//****************************SEARCH CLOSE****************************/
+/**
+*
+*Event handler for the search close button click event.
+*@param {Event} event - The click event.
+*/
 const searchCloseBtn = document.querySelector('[data-search-cancel]');
 const searchCloseHandler =(event)=>{
 event.preventDefault();
 searchIconOverlay.close();
 }
 searchCloseBtn.addEventListener('click',searchCloseHandler);
-/*
-*
-*
-*
-*This code is used to implement a search feature for a list of books. When the user submits the search form, the code extracts the form data and filters the list of books based on the search criteria.
-*
-*
+/**
+
+Event listener for the search form submit event.
+Filters the list of books based on the search criteria and displays the search results.
+@param {Event} event - The submit event.
 */
-/****>DATA SEARCH OR RETURNING RESULTS FOR SEARCHING<*****/
+
+//*This code is used to implement a search feature for a list of books. When the user submits the search form, the code extracts the form data and filters the list of books based on the search criteria.
+
+//*****>DATA SEARCH OR RETURNING RESULTS FOR SEARCHING<*****/
 const searchForm = document.querySelector('[data-search-form]');
     const authorsArr = Object.entries(authors);
     const genresArr = Object.entries(genres);
@@ -258,7 +291,7 @@ showMoreButton.addEventListener('click', (event)=>{
   let rangeMin = rangeMax - 36
   extracted = books.slice(rangeMin, rangeMax)
   for (let { author, image, title, id, description, published} of extracted) {
-      const preview = createpreview({
+      const preview = createPreview({
           author,
           image,
           title,
@@ -285,7 +318,7 @@ const loadMoreBooks = () => {
 
   const fragment = document.createDocumentFragment();
   for (const { author, image, title, id, description, published } of nextBooks) {
-    const preview = createpreview({ author, image, title, id, description, published });
+    const preview = createPreview({ author, image, title, id, description, published });
     preview.addEventListener('click', displayDiscription);
     fragment.appendChild(preview);
   }
