@@ -6,7 +6,7 @@
   "name": "iwa2",
   "description": "<h1>#MPHVIN870_IWA</h1>\r Author name: Mpho Vincent Makgwe.",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "script.js",
   "devDependencies": {
     "jsdoc": "^4.0.2"
   },
