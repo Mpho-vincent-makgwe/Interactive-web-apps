@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "docdash": "^2.0.1",
+    "utils": "^0.3.1"
+  },
+  "name": "iwa2",
+  "description": "<h1>#MPHVIN870_IWA</h1>\r Author name: Mpho Vincent Makgwe.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "jsdoc": "^4.0.2"
+  },
+  "scripts": {
+    "doc": "jsdoc -c jdoc.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mpho-vincent-makgwe/Interactive-web-apps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mpho-vincent-makgwe/Interactive-web-apps/issues"
+  },
+  "homepage": "https://github.com/Mpho-vincent-makgwe/Interactive-web-apps#readme"
+}
