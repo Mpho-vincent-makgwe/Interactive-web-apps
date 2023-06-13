@@ -1,33 +1,24 @@
 {
-  "dependencies": {
-    "docdash": "^2.0.1",
-    "utils": "^0.3.1"
-  },
-  "name": "iwa2",
-  "description": "<h1>#MPHVIN870_IWA</h1>\r Author name: Mpho Vincent Makgwe.",
-  "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {
-    "eslint": "^8.42.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5",
-    "jsdoc": "^4.0.2",
-    "prettier": "2.8.8"
-  },
+  "name": "iwa1-tally-counter",
+  "version": "1.0.1",
+  "description": "tally count and stuff",
+  "main": "IWA",
   "scripts": {
-    "doc": "jsdoc -c jdoc.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mpho-vincent-makgwe/Interactive-web-apps.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "mpho",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Mpho-vincent-makgwe/Interactive-web-apps/issues"
   },
-  "homepage": "https://github.com/Mpho-vincent-makgwe/Interactive-web-apps#readme"
+  "homepage": "https://github.com/Mpho-vincent-makgwe/Interactive-web-apps#readme",
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
+  }
 }
